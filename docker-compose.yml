@@ -1,0 +1,36 @@
+version: '3.8' # Specify docker-compose version
+
+services:
+  # Backend Service (FastAPI + Gemini)
+  backend:
+    build:
+      context: ./backend-service # Path to the backend Dockerfile directory
+      dockerfile: Dockerfile     # Optional: specify if not named 'Dockerfile'
+    container_name: gemini_backend
+    env_file:
+      - ./backend-service/.env # Load environment variables (like API key) from .env file
+    ports:
+      - "8000:8000" # Map host port 8000 to container port 8000
+    networks:
+      - gemini-net
+    # Optional: Add volumes for development hot-reloading if uvicorn uses --reload
+    # volumes:
+    #   - ./backend-service:/app
+
+  # Frontend Service (React + Nginx)
+  frontend:
+    build:
+      context: ./frontend-service # Path to the frontend Dockerfile directory
+      dockerfile: Dockerfile
+    container_name: gemini_frontend
+    ports:
+      - "3000:80"   # Map host port 3000 to container port 80 (Nginx default)
+    networks:
+      - gemini-net
+    depends_on:
+      - backend     # Optional: Tells compose to start backend before frontend (doesn't guarantee backend is ready)
+
+# Define the network
+networks:
+  gemini-net:
+    driver: bridge # Default network driver

@@ -1,0 +1,29 @@
+# Git files
+.git
+.gitignore
+
+# Python cache and virtual environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# IDE folders
+.idea/
+.vscode/
+
+# Environment file (should be passed securely, not built into image)
+.env
+
+# Docker files
+Dockerfile
+docker-compose.yml
+
+# Other misc
+*.log
+*.pot
+*.py[cod]

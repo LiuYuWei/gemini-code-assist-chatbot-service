@@ -1,0 +1,5 @@
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0 # Includes standard dependencies like websockets, httptools
+pydantic>=2.0.0
+google-generativeai>=0.3.0
+python-dotenv>=1.0.0
