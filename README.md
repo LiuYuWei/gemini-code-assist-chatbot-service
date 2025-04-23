@@ -1,6 +1,9 @@
 # gemini-code-assist-chatbot-service
 Use Gemini Code Assistant to generate the code that can use the backend and frontend service to chat with Gemini API.
 
+![image](asset/frontend.png)
+![image](asset/backend.png)
+
 ## 一、專案概述  
 `gemini-code-assist-chatbot-service` 提供一套完整的即時聊天服務，以 Google Gemini API 為核心，結合 FastAPI 後端與 React/Nginx 前端，並透過 Docker Compose 進行整合與部署。主要功能包括：
 
